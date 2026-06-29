@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AIHIGH - AI Resume Shortlisting System{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <header class="site-header">
+        <nav class="navbar container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-mark">AI</span>HIGH
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('credits') }}">Credits</a></li>
+
+                {% if session.get('logged_in') %}
+                    <li><a href="{{ url_for('upload_resume') }}" class="nav-btn">Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="nav-btn nav-btn-outline">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="nav-btn">Login</a></li>
+                    <li><a href="{{ url_for('signup') }}" class="nav-btn nav-btn-outline">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-wrapper">
+                        {% for category, message in messages %}
+                            <div class="flash-message flash-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <h3>AIHIGH</h3>
+                <p>AI Resume Shortlisting System with OCR for smarter hiring.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+                <a href="{{ url_for('credits') }}">Credits</a>
+                <a href="{{ url_for('terms') }}">Terms & Conditions</a>
+            </div>
+        </div>
+        <p class="footer-bottom">
+            &copy; 2025 AIHIGH. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>

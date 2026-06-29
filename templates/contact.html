@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - AIHIGH{% endblock %}
+
+{% block content %}
+<section class="inner-page-section">
+    <div class="container">
+        <div class="page-heading centered fade-in-up">
+            <span class="badge">Contact Us</span>
+            <h1>Let’s Connect</h1>
+            <p>
+                Have questions, feedback, or want to learn more about AIHIGH?
+                We would be happy to hear from you.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="glass-card content-card fade-in-up">
+                <h2>Project Support</h2>
+                <p>
+                    For project-related support, suggestions, or academic demonstration queries,
+                    please get in touch through the details below.
+                </p>
+
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>7499599381</p>
+                    <p>9359328592</p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Nagpur, India</p>
+                </div>
+            </div>
+
+            <div class="glass-card content-card fade-in-up">
+                <h2>Send a Message</h2>
+                <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="primary-btn full-width-btn">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

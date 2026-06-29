@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AIHIGH{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container hero-grid">
+        <div class="hero-text fade-in-up">
+            <span class="badge">AI-Powered Hiring Automation</span>
+            <h1>Shortlist the Best Resumes Faster with AI + OCR</h1>
+            <p>
+                AIHIGH helps recruiters and institutions analyze resumes, compare them with job
+                descriptions, detect key skills, and rank top candidates with smart AI matching.
+            </p>
+
+            <div class="hero-actions">
+                <a href="{{ url_for('login') }}" class="primary-btn">Get Started</a>
+                <a href="{{ url_for('about') }}" class="secondary-btn">Learn More</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card glass-card">
+                    <h3>AI Matching</h3>
+                    <p>TF-IDF & cosine similarity based ranking engine</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <h3>OCR Ready</h3>
+                    <p>Reads scanned resume PDFs using OCR support</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <h3>Skills Insights</h3>
+                    <p>Detects found and missing skills instantly</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual fade-in">
+            <div class="dashboard-preview glass-card">
+                <div class="preview-top">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+
+                <div class="preview-body">
+                    <div class="preview-panel">
+                        <h4>Top Candidate</h4>
+                        <h2>92.4%</h2>
+                        <p>Best resume match for the uploaded job description.</p>
+                    </div>
+
+                    <div class="preview-list">
+                        <div class="preview-item">
+                            <span>Resume_01.pdf</span>
+                            <strong>92%</strong>
+                        </div>
+                        <div class="progress-line"><span style="width: 92%;"></span></div>
+
+                        <div class="preview-item">
+                            <span>Resume_02.pdf</span>
+                            <strong>86%</strong>
+                        </div>
+                        <div class="progress-line"><span style="width: 86%;"></span></div>
+
+                        <div class="preview-item">
+                            <span>Resume_03.pdf</span>
+                            <strong>78%</strong>
+                        </div>
+                        <div class="progress-line"><span style="width: 78%;"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <div class="section-heading fade-in-up">
+            <span class="badge">Core Features</span>
+            <h2>Everything Needed for Smart Resume Screening</h2>
+            <p>
+                From resume parsing to candidate ranking, AIHIGH combines automation,
+                analytics, and clarity in one dashboard.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card glass-card fade-in-up">
+                <h3>Resume Upload</h3>
+                <p>Upload multiple PDF resumes at once for batch analysis.</p>
+            </div>
+
+            <div class="feature-card glass-card fade-in-up">
+                <h3>OCR Extraction</h3>
+                <p>Process scanned and image-based resumes using OCR technology.</p>
+            </div>
+
+            <div class="feature-card glass-card fade-in-up">
+                <h3>Candidate Ranking</h3>
+                <p>Rank applicants accurately with TF-IDF and cosine similarity.</p>
+            </div>
+
+            <div class="feature-card glass-card fade-in-up">
+                <h3>Skills Detection</h3>
+                <p>Find key technical and soft skills mentioned in each resume.</p>
+            </div>
+
+            <div class="feature-card glass-card fade-in-up">
+                <h3>Gap Analysis</h3>
+                <p>Identify missing skills compared to the job description.</p>
+            </div>
+
+            <div class="feature-card glass-card fade-in-up">
+                <h3>Improvement Suggestions</h3>
+                <p>Get smart suggestions to improve candidate-job fit visibility.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-card glass-card fade-in-up">
+            <div>
+                <span class="badge">Ready to try?</span>
+                <h2>Make hiring simpler, faster, and smarter.</h2>
+                <p>
+                    Login to access the dashboard and start ranking resumes using AIHIGH.
+                </p>
+            </div>
+            <a href="{{ url_for('login') }}" class="primary-btn">Go to Login</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

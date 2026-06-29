@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Results - AIHIGH{% endblock %}
+
+{% block content %}
+<section class="results-section">
+    <div class="container">
+        <div class="results-header fade-in-up">
+            <span class="badge">Analysis Results</span>
+            <h1>Resume Ranking Dashboard</h1>
+            <p>
+                AIHIGH compared all uploaded resumes with the provided job description
+                and ranked them based on similarity and skill alignment.
+            </p>
+        </div>
+
+        {% if top_candidate %}
+        <div class="top-candidate-card glass-card fade-in-up">
+            <div>
+                <span class="badge">Best Candidate</span>
+                <h2>{{ top_candidate.filename }}</h2>
+                <p>Highest matching resume from {{ total_resumes }} uploaded candidates.</p>
+            </div>
+
+            <div class="score-circle">
+                <span>{{ top_candidate.score }}%</span>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="glass-card result-table-card fade-in-up">
+            <div class="table-header">
+                <h2>Ranking Table</h2>
+                <a href="{{ url_for('upload_resume') }}" class="secondary-btn">Analyze More</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Resume Name</th>
+                            <th>Match Score</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for candidate in ranked_results %}
+                        <tr>
+                            <td>#{{ loop.index }}</td>
+                            <td>{{ candidate.filename }}</td>
+                            <td>{{ candidate.score }}%</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <span style="width: {{ candidate.score }}%;"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="candidate-analysis-grid">
+            {% for candidate in ranked_results %}
+            <div class="glass-card candidate-card fade-in-up">
+                <div class="candidate-card-top">
+                    <div>
+                        <span class="badge">Candidate #{{ loop.index }}</span>
+                        <h3>{{ candidate.filename }}</h3>
+                    </div>
+                    <div class="mini-score">{{ candidate.score }}%</div>
+                </div>
+
+                <div class="analysis-block">
+                    <h4>Skills Found</h4>
+                    <div class="tag-group">
+                        {% if candidate.found_skills %}
+                            {% for skill in candidate.found_skills %}
+                                <span class="skill-tag">{{ skill }}</span>
+                            {% endfor %}
+                        {% else %}
+                            <span class="empty-text">No major skills detected.</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="analysis-block">
+                    <h4>Missing Skills</h4>
+                    <div class="tag-group">
+                        {% if candidate.missing_skills %}
+                            {% for skill in candidate.missing_skills %}
+                                <span class="skill-tag missing-tag">{{ skill }}</span>
+                            {% endfor %}
+                        {% else %}
+                            <span class="empty-text">No missing skills identified.</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="analysis-block">
+                    <h4>Improvement Suggestions</h4>
+                    <ul class="suggestion-list">
+                        {% for suggestion in candidate.suggestions %}
+                            <li>{{ suggestion }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="analysis-block">
+                    <h4>Resume Preview</h4>
+                    <p class="preview-text">{{ candidate.text_preview }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

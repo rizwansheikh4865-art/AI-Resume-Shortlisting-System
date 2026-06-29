@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - AIHIGH{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+    <div class="container">
+        <div class="dashboard-header fade-in-up">
+            <span class="badge">Resume Shortlisting Dashboard</span>
+            <h1>Upload Resumes and Compare with Job Description</h1>
+            <p>
+                Add the target job description, upload multiple PDF resumes, and let AIHIGH
+                analyze candidate compatibility using AI and OCR.
+            </p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="glass-card upload-form-card fade-in-up">
+                <h2>Start Screening</h2>
+                <form method="POST" enctype="multipart/form-data" class="upload-form">
+                    <div class="form-group">
+                        <label for="job_description">Job Description</label>
+                        <textarea
+                            id="job_description"
+                            name="job_description"
+                            rows="10"
+                            placeholder="Paste the full job description here..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resumes">Upload PDF Resumes</label>
+                        <input
+                            type="file"
+                            id="resumes"
+                            name="resumes"
+                            accept=".pdf"
+                            multiple
+                            required
+                        >
+                        <small>You can upload multiple PDF files at once.</small>
+                    </div>
+
+                    <button type="submit" class="primary-btn full-width-btn">
+                        Analyze Resumes
+                    </button>
+                </form>
+            </div>
+
+            <div class="glass-card info-panel fade-in">
+                <h2>How It Works</h2>
+
+                <div class="info-step">
+                    <span>01</span>
+                    <div>
+                        <h3>Upload Resumes</h3>
+                        <p>Select one or more candidate resumes in PDF format.</p>
+                    </div>
+                </div>
+
+                <div class="info-step">
+                    <span>02</span>
+                    <div>
+                        <h3>Paste Job Description</h3>
+                        <p>Provide the role requirements for accurate matching.</p>
+                    </div>
+                </div>
+
+                <div class="info-step">
+                    <span>03</span>
+                    <div>
+                        <h3>AI + OCR Processing</h3>
+                        <p>Text is extracted from digital and scanned resumes.</p>
+                    </div>
+                </div>
+
+                <div class="info-step">
+                    <span>04</span>
+                    <div>
+                        <h3>Ranking & Suggestions</h3>
+                        <p>See scores, skill gaps, and candidate improvement insights.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

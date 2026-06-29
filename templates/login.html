@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Login - AIHIGH{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container auth-wrapper">
+        <div class="auth-card glass-card fade-in-up">
+            <div class="auth-header">
+                <span class="badge">Account Login</span>
+                <h1>Welcome Back</h1>
+                <p>Login to access the AIHIGH dashboard and shortlist resumes intelligently.</p>
+            </div>
+
+            <form method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="identifier">Username or Email</label>
+                    <input
+                        type="text"
+                        id="identifier"
+                        name="identifier"
+                        placeholder="Enter username or email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-btn full-width-btn">Login</button>
+            </form>
+
+            <div class="demo-credentials">
+                <p><strong>Admin Login:</strong> admin / 1234</p>
+                <p>New users can create their own account using the Sign Up page.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

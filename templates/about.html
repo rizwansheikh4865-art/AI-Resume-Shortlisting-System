@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}About - AIHIGH{% endblock %}
+
+{% block content %}
+<section class="inner-page-section">
+    <div class="container">
+        <div class="page-heading centered fade-in-up">
+            <span class="badge">About AIHIGH</span>
+            <h1>Smart Resume Screening with AI and OCR</h1>
+            <p>
+                AIHIGH is a modern resume shortlisting platform designed to help recruiters,
+                colleges, and organizations evaluate candidates faster and more accurately.
+            </p>
+        </div>
+
+        <div class="content-grid">
+            <div class="glass-card content-card fade-in-up">
+                <h2>What AIHIGH Does</h2>
+                <p>
+                    AIHIGH compares resumes with a job description using natural language
+                    processing techniques. It reads PDF resumes, extracts content, applies
+                    OCR for scanned documents, and ranks candidates based on similarity score.
+                </p>
+                <p>
+                    The system also identifies important skills found in each resume, highlights
+                    missing skills, and provides suggestions to improve candidate-job alignment.
+                </p>
+            </div>
+
+            <div class="glass-card content-card fade-in-up">
+                <h2>Key Technologies Used</h2>
+                <ul class="styled-list">
+                    <li>Flask for backend web development</li>
+                    <li>PyPDF2 for PDF text extraction</li>
+                    <li>pytesseract for OCR support</li>
+                    <li>scikit-learn for TF-IDF and cosine similarity</li>
+                    <li>HTML, CSS, and Jinja templates for responsive UI</li>
+                </ul>
+            </div>
+
+            <div class="glass-card content-card fade-in-up">
+                <h2>Why This Project Matters</h2>
+                <p>
+                    Resume screening can take significant manual effort. AIHIGH reduces that
+                    effort by automatically ranking candidates and summarizing gaps, helping
+                    decision-makers focus on the strongest profiles quickly.
+                </p>
+            </div>
+
+            <div class="glass-card content-card fade-in-up">
+                <h2>Who Can Use It</h2>
+                <p>
+                    This project is useful for HR teams, placement cells, educational institutions,
+                    startups, and any organization that wants a simple AI-powered shortlist system.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
